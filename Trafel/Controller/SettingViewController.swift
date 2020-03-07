@@ -20,6 +20,6 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed (_ sender: UIBarButtonItem){
-        
+        PresentaionManager.share.show(vc: .OnboardingViewController)
     }
 }

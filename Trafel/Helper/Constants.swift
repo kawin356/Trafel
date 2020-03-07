@@ -11,10 +11,12 @@ import Foundation
 struct K {
     struct Segue {
         static let showOnBoardingScreen = "showOnboarding"
+        static let showLogin = "showLogin"
     }
     
     struct StoryboardID {
         static let main = "Main"
         static let mainTabBarController = "MainTabBarController"
+        static let onboardingViewController = "OnboardingViewController"
     }
 }
