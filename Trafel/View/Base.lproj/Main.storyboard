@@ -45,7 +45,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRr-MF-kZK">
-                                <rect key="frame" x="24" y="766" width="366" height="56"/>
+                                <rect key="frame" x="36" y="766" width="342" height="56"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="g5q-EG-991"/>
@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jKu-UP-0QT">
-                                <rect key="frame" x="0.0" y="20" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jKu-UP-0QT" secondAttribute="height" multiplier="1:1" id="VOe-x9-5ch"/>
@@ -71,15 +71,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="zPz-xi-0Q9">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="zPz-xi-0Q9" customClass="OnboardingCollectionViewCell" customModule="Trafel" customModuleProvider="target">
                                         <rect key="frame" x="21" y="0.0" width="372" height="313"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eNR-xb-ATy">
                                             <rect key="frame" x="0.0" y="0.0" width="372" height="313"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJx-Np-CgH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="372" height="313"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="eJx-Np-CgH" secondAttribute="trailing" id="Snr-j4-HGW"/>
+                                                <constraint firstItem="eJx-Np-CgH" firstAttribute="top" secondItem="eNR-xb-ATy" secondAttribute="top" id="Zuf-xf-wXG"/>
+                                                <constraint firstItem="eJx-Np-CgH" firstAttribute="leading" secondItem="eNR-xb-ATy" secondAttribute="leading" id="s8y-dH-iMY"/>
+                                                <constraint firstAttribute="bottom" secondItem="eJx-Np-CgH" secondAttribute="bottom" id="u1t-AP-LWg"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="372" height="313"/>
+                                        <connections>
+                                            <outlet property="slideImageView" destination="eJx-Np-CgH" id="PQv-4Z-4hM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -88,12 +101,12 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6ak-yB-1nk">
-                                <rect key="frame" x="187.5" y="450" width="39" height="37"/>
+                                <rect key="frame" x="187.5" y="430" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-LX-Yrn">
-                                <rect key="frame" x="24" y="511" width="366" height="126"/>
+                                <rect key="frame" x="24" y="491" width="366" height="126"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why use Trafel?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFG-wg-l5v">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="36"/>
@@ -112,15 +125,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="mRr-MF-kZK" firstAttribute="leading" secondItem="kct-it-y1B" secondAttribute="leading" constant="24" id="BUS-Qz-Pqy"/>
+                            <constraint firstItem="mRr-MF-kZK" firstAttribute="leading" secondItem="kct-it-y1B" secondAttribute="leading" constant="36" id="BUS-Qz-Pqy"/>
                             <constraint firstItem="jKu-UP-0QT" firstAttribute="leading" secondItem="kct-it-y1B" secondAttribute="leading" id="CDB-3u-odA"/>
-                            <constraint firstItem="jKu-UP-0QT" firstAttribute="top" secondItem="YRR-Nl-6j8" secondAttribute="top" constant="20" symbolic="YES" id="Oy9-NU-y2u"/>
+                            <constraint firstItem="jKu-UP-0QT" firstAttribute="top" secondItem="YRR-Nl-6j8" secondAttribute="top" id="Oy9-NU-y2u"/>
                             <constraint firstItem="MbT-LX-Yrn" firstAttribute="leading" secondItem="kct-it-y1B" secondAttribute="leading" constant="24" id="P2r-m4-aW6"/>
                             <constraint firstItem="6ak-yB-1nk" firstAttribute="top" secondItem="jKu-UP-0QT" secondAttribute="bottom" constant="16" id="Rlq-Wj-kzD"/>
                             <constraint firstItem="jKu-UP-0QT" firstAttribute="trailing" secondItem="kct-it-y1B" secondAttribute="trailing" id="YKL-yI-5O2"/>
                             <constraint firstItem="6ak-yB-1nk" firstAttribute="centerX" secondItem="YRR-Nl-6j8" secondAttribute="centerX" id="c8o-lt-SsT"/>
                             <constraint firstItem="kct-it-y1B" firstAttribute="bottom" secondItem="mRr-MF-kZK" secondAttribute="bottom" constant="40" id="dBL-hc-Hew"/>
-                            <constraint firstItem="kct-it-y1B" firstAttribute="trailing" secondItem="mRr-MF-kZK" secondAttribute="trailing" constant="24" id="ok8-Gx-Crj"/>
+                            <constraint firstItem="kct-it-y1B" firstAttribute="trailing" secondItem="mRr-MF-kZK" secondAttribute="trailing" constant="36" id="ok8-Gx-Crj"/>
                             <constraint firstItem="kct-it-y1B" firstAttribute="trailing" secondItem="MbT-LX-Yrn" secondAttribute="trailing" constant="24" id="tpW-pk-jEc"/>
                             <constraint firstItem="MbT-LX-Yrn" firstAttribute="top" secondItem="6ak-yB-1nk" secondAttribute="bottom" constant="24" id="y6o-fO-e2j"/>
                         </constraints>
@@ -129,6 +142,9 @@
                     <navigationItem key="navigationItem" id="eDg-J6-2jZ"/>
                     <connections>
                         <outlet property="collectionView" destination="jKu-UP-0QT" id="dPK-lc-Z6s"/>
+                        <outlet property="descriptionLabel" destination="gCO-aL-HbE" id="BcQ-uh-RXI"/>
+                        <outlet property="pageControl" destination="6ak-yB-1nk" id="Wux-nu-4tn"/>
+                        <outlet property="titleLabel" destination="BFG-wg-l5v" id="Eed-0T-Mur"/>
                         <segue destination="NsN-Vs-MxL" kind="show" identifier="showLogin" id="sr3-1V-9US"/>
                     </connections>
                 </viewController>

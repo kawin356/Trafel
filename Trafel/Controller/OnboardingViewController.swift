@@ -11,12 +11,19 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupCollectionView()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        setupPageControl()
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .systemGroupedBackground
     }
     
     private func setupCollectionView() {
@@ -27,20 +34,30 @@ class OnboardingViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    private func setupPageControl(){
+        pageControl.numberOfPages = Slide.collection.count
+    }
+    
     @IBAction func getStartedButtonPressed(_ sender: UIButton){
         performSegue(withIdentifier: K.Segue.showLogin, sender: nil)
+    }
+    
+    private func updateCaption(_ index: Int){
+        titleLabel.text = Slide.collection[index].title
+        descriptionLabel.text = Slide.collection[index].description
     }
 }
 
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return Slide.collection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = indexPath.row % 2 == 0 ? .red : .blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OnboardingCollectionViewCell
+        cell.configImage(image: UIImage(named: Slide.collection[indexPath.row].imageName) ?? UIImage() )
         return cell
     }
     
@@ -50,5 +67,11 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        updateCaption(index)
+        pageControl.currentPage = index
     }
 }
