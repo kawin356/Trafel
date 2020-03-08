@@ -20,10 +20,17 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SeP-YS-qrG">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLancher" translatesAutoresizingMaskIntoConstraints="NO" id="bBK-Sw-5Ox">
+                                <rect key="frame" x="87" y="206" width="240" height="146"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="SeP-YS-qrG" firstAttribute="top" secondItem="bBK-Sw-5Ox" secondAttribute="bottom" constant="86" id="5wV-gy-QO9"/>
+                            <constraint firstItem="bBK-Sw-5Ox" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="71K-Nm-J5G"/>
                             <constraint firstItem="SeP-YS-qrG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Cs8-VF-PXo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bBK-Sw-5Ox" secondAttribute="trailing" constant="87" id="MyW-4g-wlV"/>
+                            <constraint firstItem="bBK-Sw-5Ox" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="162" id="PKi-aM-ihl"/>
                             <constraint firstItem="SeP-YS-qrG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pP8-1x-erl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -34,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790" y="129"/>
+            <point key="canvasLocation" x="-791.304347826087" y="128.57142857142856"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="TzO-jj-eG4">
@@ -277,7 +284,7 @@
             </objects>
             <point key="canvasLocation" x="873.91304347826099" y="128.57142857142856"/>
         </scene>
-        <!--Setting View Controller-->
+        <!--Settings-->
         <scene sceneID="ann-4T-Hmf">
             <objects>
                 <viewController id="elm-Mq-iRB" customClass="SettingViewController" customModule="Trafel" customModuleProvider="target" sceneMemberID="viewController">
@@ -287,7 +294,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="72K-8W-JBA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6ni-nT-R2Q">
+                    <navigationItem key="navigationItem" title="Settings" id="6ni-nT-R2Q">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="IIr-Dt-RXu">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="elm-Mq-iRB" id="5LS-Np-657"/>
@@ -299,7 +306,7 @@
             </objects>
             <point key="canvasLocation" x="3560.8695652173915" y="454.6875"/>
         </scene>
-        <!--Item 1-->
+        <!--Home-->
         <scene sceneID="sog-2H-ILq">
             <objects>
                 <viewController id="htQ-6a-4yT" sceneMemberID="viewController">
@@ -309,7 +316,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gxo-xn-dbB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="BhM-OT-fIa"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="icHome" id="BhM-OT-fIa"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQX-Pm-2l8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -333,14 +340,14 @@
             </objects>
             <point key="canvasLocation" x="1730" y="129"/>
         </scene>
-        <!--Item 2-->
+        <!--Setting-->
         <scene sceneID="WBO-8T-nEO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bsH-QY-dHN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="PW2-7c-EEr"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="gear" catalog="system" id="PW2-7c-EEr"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uWM-6y-ffq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="uWM-6y-ffq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -354,6 +361,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="icEqual" width="512" height="512"/>
+        <image name="icHome" width="21" height="21"/>
+        <image name="icLancher" width="512" height="512"/>
     </resources>
 </document>

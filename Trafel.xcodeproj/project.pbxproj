@@ -21,6 +21,7 @@
 		439D374B2413BEA2004F1010 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D374A2413BEA2004F1010 /* Constants.swift */; };
 		439D374D2413C1BD004F1010 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D374C2413C1BD004F1010 /* SettingViewController.swift */; };
 		439D37512413C923004F1010 /* PresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439D37502413C923004F1010 /* PresentationManager.swift */; };
+		5720F546E48BD1A780F2D761 /* Pods_Trafel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897274E6FC5032E34D50C819 /* Pods_Trafel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,9 @@
 		439D374A2413BEA2004F1010 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		439D374C2413C1BD004F1010 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		439D37502413C923004F1010 /* PresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationManager.swift; sourceTree = "<group>"; };
+		6BFA8EE062FDC82B7311FF75 /* Pods-Trafel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trafel.release.xcconfig"; path = "Target Support Files/Pods-Trafel/Pods-Trafel.release.xcconfig"; sourceTree = "<group>"; };
+		897274E6FC5032E34D50C819 /* Pods_Trafel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trafel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28A98A2D7A11D635FFB6353 /* Pods-Trafel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trafel.debug.xcconfig"; path = "Target Support Files/Pods-Trafel/Pods-Trafel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5720F546E48BD1A780F2D761 /* Pods_Trafel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,8 @@
 			children = (
 				0BAC70A52413A44C00371C1F /* Trafel */,
 				0BAC70A42413A44C00371C1F /* Products */,
+				ECBFFF1E5EB8028DEB03FB0E /* Pods */,
+				D0C4451AEFB8AA4E72784733 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,24 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		D0C4451AEFB8AA4E72784733 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				897274E6FC5032E34D50C819 /* Pods_Trafel.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECBFFF1E5EB8028DEB03FB0E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B28A98A2D7A11D635FFB6353 /* Pods-Trafel.debug.xcconfig */,
+				6BFA8EE062FDC82B7311FF75 /* Pods-Trafel.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BAC70B72413A44F00371C1F /* Build configuration list for PBXNativeTarget "Trafel" */;
 			buildPhases = (
+				125E508CEF9630E5C1C4BE46 /* [CP] Check Pods Manifest.lock */,
 				0BAC709F2413A44C00371C1F /* Sources */,
 				0BAC70A02413A44C00371C1F /* Frameworks */,
 				0BAC70A12413A44C00371C1F /* Resources */,
+				6A6BFACC505BD696B94A0484 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +223,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		125E508CEF9630E5C1C4BE46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trafel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A6BFACC505BD696B94A0484 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trafel/Pods-Trafel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trafel/Pods-Trafel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Trafel/Pods-Trafel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0BAC709F2413A44C00371C1F /* Sources */ = {
@@ -354,6 +423,7 @@
 		};
 		0BAC70B82413A44F00371C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B28A98A2D7A11D635FFB6353 /* Pods-Trafel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -372,6 +442,7 @@
 		};
 		0BAC70B92413A44F00371C1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BFA8EE062FDC82B7311FF75 /* Pods-Trafel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

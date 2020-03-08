@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupNavigationbar()
     }
     
-    private func setupView() {
-        view.backgroundColor = .green
+    private func setupNavigationbar() {
+        self.title = "Setting"
     }
     
     @IBAction func logoutButtonPressed (_ sender: UIBarButtonItem){
-        PresentaionManager.share.show(vc: .OnboardingViewController)
+        MBProgressHUD.showAdded(to: view, animated: true)
+        delay(durationInSeconds: 0.5) {
+            PresentaionManager.share.show(vc: .OnboardingViewController)
+        }
     }
 }

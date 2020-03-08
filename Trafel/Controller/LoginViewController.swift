@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -69,10 +70,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        if isSuccesfulLogin {
-            delegate?.showTabbarViewController()
-        } else {
-            errorMessage = "Your password is invalid. Please try again."
+        MBProgressHUD.showAdded(to: view, animated: true)
+        
+        delay(durationInSeconds: 2.0) {
+            MBProgressHUD.hide(for: self.view, animated: true)
+            if self.isSuccesfulLogin {
+                self.delegate?.showTabbarViewController()
+            } else {
+                self.errorMessage = "Your password is invalid. Please try again."
+            }
         }
+        
     }
 }
