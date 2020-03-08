@@ -173,6 +173,9 @@
                                     <segment title="Login"/>
                                     <segment title="Sign up"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentControlPressed:" destination="NsN-Vs-MxL" eventType="valueChanged" id="Yk7-OS-xcL"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZSC-wE-lfC">
                                 <rect key="frame" x="48" y="99" width="318" height="428.5"/>
@@ -211,6 +214,9 @@
                                         <rect key="frame" x="0.0" y="248.5" width="318" height="36"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <state key="normal" title="Forget Password?"/>
+                                        <connections>
+                                            <action selector="forgetPasswordButtonPressed:" destination="NsN-Vs-MxL" eventType="touchUpInside" id="Rtb-cg-bF8"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGv-bR-IDx">
                                         <rect key="frame" x="0.0" y="300.5" width="318" height="56"/>
@@ -222,6 +228,9 @@
                                         <state key="normal" title="Sign up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signupButtonPressed:" destination="NsN-Vs-MxL" eventType="touchUpInside" id="f9g-sm-Mmz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vw8-0k-9gz">
                                         <rect key="frame" x="0.0" y="372.5" width="318" height="56"/>
@@ -233,6 +242,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="NsN-Vs-MxL" eventType="touchUpInside" id="4nF-Vd-Zn8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -250,6 +262,16 @@
                         <viewLayoutGuide key="safeArea" id="5FZ-RX-vji"/>
                     </view>
                     <navigationItem key="navigationItem" id="i7s-lX-0tc"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="xrZ-BG-a2Q" id="zxZ-oq-ubO"/>
+                        <outlet property="errorLabel" destination="p1P-KO-QLy" id="2E5-6U-FGW"/>
+                        <outlet property="forgetPasswordButton" destination="z6R-4j-OJM" id="rxC-Hh-ei1"/>
+                        <outlet property="loginButton" destination="Vw8-0k-9gz" id="gYx-I1-Ged"/>
+                        <outlet property="passwordComfirmationTextfield" destination="OFg-DZ-m0K" id="Jfh-vz-IFF"/>
+                        <outlet property="passwordTextField" destination="xER-Ss-5VY" id="LMu-YZ-epf"/>
+                        <outlet property="segmentControl" destination="w5A-Pj-D3m" id="BQm-2F-gP7"/>
+                        <outlet property="signupButton" destination="xGv-bR-IDx" id="10W-nc-Xen"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMV-41-Cvt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
