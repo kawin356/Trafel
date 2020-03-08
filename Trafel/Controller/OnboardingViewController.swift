@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OnboardingViewControllerDelegate: class {
+    func showTabbarViewController()
+}
+
 class OnboardingViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -43,6 +47,14 @@ class OnboardingViewController: UIViewController {
         performSegue(withIdentifier: K.Segue.showLogin, sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segue.showLogin {
+            if let destination = segue.destination as? LoginViewController {
+                destination.delegate = self
+            }
+        }
+    }
+    
     private func updateCaption(_ index: Int){
         titleLabel.text = Slide.collection[index].title
         descriptionLabel.text = Slide.collection[index].description
@@ -73,5 +85,15 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
         let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
         updateCaption(index)
         pageControl.currentPage = index
+    }
+}
+
+extension OnboardingViewController: OnboardingViewControllerDelegate {
+    func showTabbarViewController() {
+        if let loginViewController = self.presentedViewController as? LoginViewController {
+            loginViewController.dismiss(animated: true) {
+                PresentaionManager.share.show(vc: .MainTabBarController)
+            }
+        }
     }
 }

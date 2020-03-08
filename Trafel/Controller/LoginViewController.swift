@@ -18,6 +18,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
+    weak var delegate: OnboardingViewControllerDelegate?
+    
+    private var isSuccesfulLogin: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewFor(pageType: .login)
@@ -34,24 +38,23 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private var errorMessage: String? {
+        didSet {
+            showErrorMessage(message: errorMessage)
+        }
+    }
+    
     private func setupViewFor(pageType: PageType){
+        errorMessage = nil
         passwordComfirmationTextfield.isHidden = pageType == .login
         signupButton.isHidden = pageType == .login
         loginButton.isHidden = pageType == .signup
         forgetPasswordButton.isHidden = pageType == .signup
-        
-        switch pageType {
-        case .login:
-            passwordComfirmationTextfield.isHidden = true
-            signupButton.isHidden = true
-            errorLabel.isHidden = true
-        case .signup:
-            signupButton.isHidden = false
-            passwordComfirmationTextfield.isHidden = false
-            loginButton.isHidden = true
-            forgetPasswordButton.isHidden = true
-            errorLabel.isHidden = true
-        }
+    }
+    
+    private func showErrorMessage(message: String?){
+        errorLabel.isHidden = message == nil
+        errorLabel.text = message
     }
     
     @IBAction func segmentControlPressed(_ sender: UISegmentedControl) {
@@ -66,5 +69,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        if isSuccesfulLogin {
+            delegate?.showTabbarViewController()
+        } else {
+            errorMessage = "Your password is invalid. Please try again."
+        }
     }
 }
