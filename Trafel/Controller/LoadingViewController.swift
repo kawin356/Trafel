@@ -28,7 +28,7 @@ class LoadingViewController: UIViewController {
         if isUserLogin {
             PresentaionManager.share.show(vc: .MainTabBarController)
         } else {
-            performSegue(withIdentifier: K.Segue.showOnBoardingScreen, sender: nil)
+            performSegue(withIdentifier: K.Segue.showOnBoarding, sender: nil)
         }
     }
 }

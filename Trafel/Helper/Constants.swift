@@ -10,7 +10,7 @@ import Foundation
 
 struct K {
     struct Segue {
-        static let showOnBoardingScreen = "showOnboarding"
+        static let showOnBoarding = "showOnboarding"
         static let showLogin = "showLogin"
     }
     
@@ -18,5 +18,9 @@ struct K {
         static let main = "Main"
         static let mainTabBarController = "MainTabBarController"
         static let onboardingViewController = "OnboardingViewController"
+    }
+    
+    struct ReuseIdentifier {
+        static let reuseCell = "Cell"
     }
 }

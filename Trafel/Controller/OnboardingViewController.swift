@@ -68,7 +68,8 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OnboardingCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.ReuseIdentifier.reuseCell, for: indexPath) as? OnboardingCollectionViewCell
+            else { return UICollectionViewCell() }
         cell.configImage(image: UIImage(named: Slide.collection[indexPath.row].imageName) ?? UIImage() )
         return cell
     }
@@ -89,6 +90,7 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
 }
 
 extension OnboardingViewController: OnboardingViewControllerDelegate {
+    
     func showTabbarViewController() {
         if let loginViewController = self.presentedViewController as? LoginViewController {
             loginViewController.dismiss(animated: true) {

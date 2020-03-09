@@ -10,6 +10,7 @@ import UIKit
 import MBProgressHUD
 
 class LoginViewController: UIViewController {
+    
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,11 +22,16 @@ class LoginViewController: UIViewController {
     
     weak var delegate: OnboardingViewControllerDelegate?
     
-    private var isSuccesfulLogin: Bool = false
+    private var isSuccesfulLogin: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewFor(pageType: .login)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        emailTextField.becomeFirstResponder()
     }
     
     private enum PageType {
@@ -70,8 +76,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        view.endEditing(true)
         MBProgressHUD.showAdded(to: view, animated: true)
-        
         delay(durationInSeconds: 2.0) {
             MBProgressHUD.hide(for: self.view, animated: true)
             if self.isSuccesfulLogin {
