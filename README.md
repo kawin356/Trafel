@@ -3,7 +3,14 @@
 This project is result of [Link](https://www.udemy.com/course/ios-swift-5-build-an-onboarding-login-sign-up-flow/) in Udemy 
 Trafel app has a beutiful ui in login and onboarding(Getting Start)
 
+## Getting Start
+![](1.gif)
 
+## Login
+![](2.gif)
+
+## Logout
+![](3.gif)
 
 # License
 
